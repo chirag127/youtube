@@ -194,7 +194,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			textarea: true,
 			value: 1,
 			min: .01,
-			max: 3.17,
+			max: 4,
 			step: .01
 		},
 		smart_speed: {

@@ -117,7 +117,7 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 		   { console.log("skipping permanent speed, since speed was manually set differently for this video to:" + video.playbackRate + ", was it?"); return; }
 	}
 	if (!(player.getVideoData() && player.getVideoData().isLive))
-	{ player.setPlaybackRate(Number(option)); if (!video) { video = { playbackRate: 1 }; };	video.playbackRate = Number(option); // #1729 q2 // hi! @raszpl
+	{ var _speed = Number(option); if (_speed >= 0.25 && _speed <= 2) { player.setPlaybackRate(_speed); } if (!video) { video = { playbackRate: 1 }; }; video.playbackRate = _speed; // #1729 q2 // hi! @raszpl
 		if ( (this.storage.player_force_speed_on_music !== true || this.storage.player_dont_speed_education === true)
 		 	&& option !== 1) {
 			ImprovedTube.speedException = function () {
