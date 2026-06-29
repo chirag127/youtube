@@ -2371,3 +2371,25 @@ html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd
 html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer:not([is-shelf-item])[is-empty] {
     display: none !important;
 }
+
+/*------------------------------------------------------------------------------
+FULL VIDEO TITLES — issue #913
+Show complete video titles without truncation on all YouTube pages.
+Storage key: full_video_titles
+------------------------------------------------------------------------------*/
+html[it-full-video-titles=true] ytd-video-renderer #video-title,
+html[it-full-video-titles=true] ytd-grid-video-renderer #video-title,
+html[it-full-video-titles=true] ytd-rich-grid-media #video-title,
+html[it-full-video-titles=true] ytd-compact-video-renderer #video-title,
+html[it-full-video-titles=true] ytd-playlist-video-renderer #video-title,
+html[it-full-video-titles=true] ytd-reel-item-renderer #video-title,
+html[it-full-video-titles=true] ytd-vertical-list-renderer #video-title,
+html[it-full-video-titles=true] .ytLockupViewModelMetadataTitle {
+    -webkit-line-clamp: unset !important;
+    display: block !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    max-height: none !important;
+}

@@ -632,6 +632,14 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 		}
 	}
 };
+// issue #913 — full video titles
+extension.skeleton.main.layers.section.appearance.on.click.full_video_titles = {
+	component: "switch",
+	text: "fullVideoTitles",
+	storage: "full_video_titles",
+	tags: "title,truncate,ellipsis,full"
+};
+
 extension.skeleton.main.layers.section.appearance.on.click.description = {
 	component: "select",
 	variant: "description",
