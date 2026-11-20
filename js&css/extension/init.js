@@ -97,6 +97,7 @@ const pageWorldFiles = [
 	'/js&css/web-accessible/www.youtube.com/features/playlist-series-gap.js',
 	'/js&css/web-accessible/www.youtube.com/features/playlist-health.js',
 	'/js&css/web-accessible/www.youtube.com/features/comments-tools.js',
+	'/js&css/web-accessible/www.youtube.com/features/smart-filters.js',
 	'/js&css/web-accessible/init.js'
 ];
 
