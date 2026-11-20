@@ -1967,5 +1967,14 @@
   },
   "channelRssButton": {
     "message": "RSS feed button on channel pages"
+  },
+  "invidious": {
+    "message": "Invidious / Piped"
+  },
+  "invidiousInstance": {
+    "message": "Open videos on"
+  },
+  "automaticRedirect": {
+    "message": "Redirect automatically (watch pages)"
   }
 }
