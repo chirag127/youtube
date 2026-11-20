@@ -2033,5 +2033,17 @@
   },
   "overTwentyMinutes": {
     "message": "Over 20 minutes"
+  },
+  "timeLimiter": {
+    "message": "Time limiter"
+  },
+  "timeLimiterEnable": {
+    "message": "Daily watch limit"
+  },
+  "dailyLimitMinutes": {
+    "message": "Minutes per day"
+  },
+  "breakReminderMinutes": {
+    "message": "Break reminder (0 = off)"
   }
 }
