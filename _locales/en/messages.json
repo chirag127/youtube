@@ -1982,5 +1982,14 @@
   },
   "playlistFilterCard": {
     "message": "Filter rows as you type"
+  },
+  "seriesGap": {
+    "message": "Series gaps"
+  },
+  "seriesGapButton": {
+    "message": "Episode gap report"
+  },
+  "minimumNumberedTitles": {
+    "message": "Minimum numbered titles for a report"
   }
 }
