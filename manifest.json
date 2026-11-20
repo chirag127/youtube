@@ -86,6 +86,7 @@
         "js&css/web-accessible/www.youtube.com/features/zen.js",
         "js&css/web-accessible/www.youtube.com/features/channel-rss.js",
         "js&css/web-accessible/www.youtube.com/features/invidious.js",
+        "js&css/web-accessible/www.youtube.com/features/playlist-filter.js",
         "menu/icons/48.png"
       ],
       "matches": ["https://www.youtube.com/*"]

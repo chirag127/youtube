@@ -1976,5 +1976,11 @@
   },
   "automaticRedirect": {
     "message": "Redirect automatically (watch pages)"
+  },
+  "playlistFilter": {
+    "message": "Playlist row filter"
+  },
+  "playlistFilterCard": {
+    "message": "Filter rows as you type"
   }
 }

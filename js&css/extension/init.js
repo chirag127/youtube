@@ -93,6 +93,7 @@ const pageWorldFiles = [
 	'/js&css/web-accessible/www.youtube.com/features/zen.js',
 	'/js&css/web-accessible/www.youtube.com/features/channel-rss.js',
 	'/js&css/web-accessible/www.youtube.com/features/invidious.js',
+	'/js&css/web-accessible/www.youtube.com/features/playlist-filter.js',
 	'/js&css/web-accessible/init.js'
 ];
 
