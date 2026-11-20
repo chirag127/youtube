@@ -2045,5 +2045,11 @@
   },
   "breakReminderMinutes": {
     "message": "Break reminder (0 = off)"
+  },
+  "captionSearch": {
+    "message": "Caption search"
+  },
+  "captionSearchLoaded": {
+    "message": "Search loaded captions in YouTube's transcript panel"
   }
 }

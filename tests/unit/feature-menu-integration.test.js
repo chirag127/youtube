@@ -3,7 +3,7 @@ const path = require('path');
 const vm = require('vm');
 
 const root = path.join(__dirname, '../..');
-const featureParts = ['bookmarks', 'zen', 'channel-rss', 'invidious', 'playlist-filter', 'series-gap', 'playlist-health', 'comments-tools', 'smart-filters', 'time-limiter'];
+const featureParts = ['bookmarks', 'zen', 'channel-rss', 'invidious', 'playlist-filter', 'series-gap', 'playlist-health', 'comments-tools', 'smart-filters', 'time-limiter', 'caption-search'];
 
 function scripts(entry) {
 	const html = fs.readFileSync(path.join(root, 'menu', entry), 'utf8');
