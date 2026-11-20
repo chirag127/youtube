@@ -1961,5 +1961,11 @@
   },
   "hideEverythingElse": {
     "message": "Hide everything except the player"
+  },
+  "channelRss": {
+    "message": "Channel RSS"
+  },
+  "channelRssButton": {
+    "message": "RSS feed button on channel pages"
   }
 }
