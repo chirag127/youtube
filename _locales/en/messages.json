@@ -1952,5 +1952,14 @@
   },
   "bookmarksWithNotes": {
     "message": "Bookmarks with notes (saved timestamps)"
+  },
+  "zenMode": {
+    "message": "Zen mode"
+  },
+  "dimEverythingElse": {
+    "message": "Dim everything except the player"
+  },
+  "hideEverythingElse": {
+    "message": "Hide everything except the player"
   }
 }
