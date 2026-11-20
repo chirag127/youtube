@@ -161,13 +161,14 @@ class ResourceReferences(HTMLParser):
 
 
 class RuntimeAssetTests(unittest.TestCase):
-	def test_popup_scripts_and_styles_exist(self):
-		parser = ResourceReferences()
-		parser.feed((ROOT / 'menu' / 'index.html').read_text(encoding='utf8'))
-		self.assertGreater(len(parser.paths), 0)
-		for relative in parser.paths:
-			with self.subTest(resource=relative):
-				self.assertTrue((ROOT / 'menu' / relative).is_file(), relative)
+	def test_menu_scripts_and_styles_exist(self):
+		for entry in ('index.html', 'sidepanel.html'):
+			parser = ResourceReferences()
+			parser.feed((ROOT / 'menu' / entry).read_text(encoding='utf8'))
+			self.assertGreater(len(parser.paths), 0)
+			for relative in parser.paths:
+				with self.subTest(document=entry, resource=relative):
+					self.assertTrue((ROOT / 'menu' / relative).is_file(), relative)
 
 
 if __name__ == '__main__':

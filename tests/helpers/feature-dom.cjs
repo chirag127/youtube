@@ -62,7 +62,8 @@ module.exports = function featureDom(file, settings = {}, html = '', setup = () 
 		emit(document, 'it-message-from-youtube--readed');
 		sent.push(message);
 		if (message.action === 'set') pending.push(() => {
-			if (JSON.stringify(persisted[message.key]) !== JSON.stringify(message.value)) storage(message.key, message.value || undefined);
+			const value = message.value == null ? undefined : message.value;
+			if (JSON.stringify(persisted[message.key]) !== JSON.stringify(value)) storage(message.key, value);
 		});
 	});
 	evaluate(file);
