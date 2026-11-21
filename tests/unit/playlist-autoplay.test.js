@@ -108,7 +108,13 @@ function load (storage = {}, url = initialUrl, withWatch = true) {
 			provider.textContent = JSON.stringify({ action: 'storage-loaded', storage: JSON.parse(JSON.stringify(storage)) });
 			emit(document, 'it-message-from-extension');
 		},
-		echo: index => { const message = sent[index]; change(message.key, message.value === null ? undefined : message.value); },
+		echo: index => {
+			// Storage echoes arrive in a later task, after deferred bridge acknowledgements.
+			jest.runAllTicks();
+			const message = sent[index];
+			change(message.key, message.value === null ? undefined : message.value);
+			jest.runAllTicks();
+		},
 		toggle: () => document.getElementById('it-playlist-autoplay-toggle'),
 		reset: () => document.getElementById('it-playlist-autoplay-reset'),
 		flush: async (milliseconds = 60) => {
