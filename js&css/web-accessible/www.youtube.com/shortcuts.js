@@ -151,7 +151,9 @@ ImprovedTube.shortcutsListeners = {
 		}
 	},
 	wheel: function (event) {
-		const player = ImprovedTube.elements.player;
+		const isShorts = location.pathname.startsWith('/shorts/'),
+			reel = isShorts ? ImprovedTube.getActiveShortsRenderer() : null,
+			player = isShorts ? reel?.querySelector('#shorts-player, .html5-video-player') || reel : ImprovedTube.elements.player;
 		if (!player || event.deltaY === 0 || ImprovedTube.shortcutsIgnoreEvent(event)) return;
 
 		const path = event.composedPath?.() || [];
@@ -159,7 +161,7 @@ ImprovedTube.shortcutsListeners = {
 		if (
 			!player.matches(':hover') &&
 			!path.includes(player) &&
-			!path.includes(ImprovedTube.elements.video)
+			!path.includes(isShorts ? reel?.querySelector('video') : ImprovedTube.elements.video)
 		) return;
 
 		ImprovedTube.input.pressed.wheel = event.deltaY > 0 ? 1 : -1;
@@ -219,8 +221,8 @@ ImprovedTube.shortcutPlaybackSpeed = function (key) {
 
 	if (speed === undefined || isNaN(speed)) return;
 
-	ImprovedTube.playbackSpeed(speed);
-	ImprovedTube.showStatus(speed);
+	const appliedSpeed = ImprovedTube.playbackSpeed(speed);
+	if (appliedSpeed !== false) ImprovedTube.showStatus(appliedSpeed);
 };
 /*------------------------------------------------------------------------------
 4.7.2 PICTURE IN PICTURE (PIP)
@@ -511,7 +513,8 @@ ImprovedTube.shortcutDecreasePlaybackSpeed = function () {
 4.7.18 RESET PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutResetPlaybackSpeed = function () {
-	ImprovedTube.showStatus(this.playbackSpeed(1));
+	const speed = this.playbackSpeed(1);
+	if (speed !== false) this.showStatus(speed);
 };
 /*------------------------------------------------------------------------------
 4.7.19 GO TO SEARCH BOX
@@ -571,13 +574,25 @@ ImprovedTube.shortcutTranscript = function () {
 4.7.22 LIKE
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutLike = function () {
-	document.querySelector('like-button-view-model button')?.click();
+	if (!location.pathname.startsWith('/shorts/')) {
+		document.querySelector('like-button-view-model button')?.click();
+		return;
+	}
+	const reel = this.getActiveShortsRenderer();
+	const buttons = reel?.querySelectorAll('like-button-view-model button[aria-pressed], #like-button button[aria-pressed]') || [];
+	[...buttons].find(button => !button.disabled && button.getAttribute('aria-disabled') !== 'true' && !button.closest('[hidden], [aria-hidden="true"], [inert]'))?.click();
 };
 /*------------------------------------------------------------------------------
 4.7.23 DISLIKE
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutDislike = function () {
-	document.querySelector('dislike-button-view-model button')?.click();
+	if (!location.pathname.startsWith('/shorts/')) {
+		document.querySelector('dislike-button-view-model button')?.click();
+		return;
+	}
+	const reel = this.getActiveShortsRenderer();
+	const buttons = reel?.querySelectorAll('dislike-button-view-model button[aria-pressed], #dislike-button button[aria-pressed]') || [];
+	[...buttons].find(button => !button.disabled && button.getAttribute('aria-disabled') !== 'true' && !button.closest('[hidden], [aria-hidden="true"], [inert]'))?.click();
 };
 /*------Report------*/
 ImprovedTube.shortcutReport = function () {
