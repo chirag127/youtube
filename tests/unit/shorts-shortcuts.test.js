@@ -105,16 +105,19 @@ describe('Shorts shortcuts target the current reel and media (#4068)', () => {
 
 	test('wheel speed shortcuts work with no watch player and ignore inactive reels', () => {
 		const page = load({ shortcuts_playback_speed_step: 0.25, shortcut_increase_playback_speed: { wheel: 1 } });
+		Object.defineProperty(page.window, 'event', { configurable: true, get () { throw new Error('Use the dispatched event'); } });
 		page.IT.elements.player = null;
 		expect(page.wheel(page.video).defaultPrevented).toBe(true);
 		expect(page.video.playbackRate).toBe(1.25);
 		expect(page.wheel(page.inactive.querySelector('video')).defaultPrevented).toBe(false);
+		expect(page.wheel(page.video, 0).defaultPrevented).toBe(false);
+		const input = page.document.createElement('input');
+		page.reel.appendChild(input);
+		expect(page.wheel(input).defaultPrevented).toBe(false);
 		expect(page.video.playbackRate).toBe(1.25);
 	});
 
 	test('retains ID-based native reaction controls and skips unrelated menu buttons', () => {
-		const page = load();
-		page.reel.querySelector('reel-action-bar-view-model').innerHTML =
 		const page = load();
 		page.reel.querySelector('reel-action-bar-view-model').innerHTML =
 			'<div id="like-button"><button>Menu</button><button aria-pressed="false">Like</button></div>' +
