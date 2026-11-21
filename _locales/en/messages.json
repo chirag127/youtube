@@ -2051,5 +2051,8 @@
   },
   "captionSearchLoaded": {
     "message": "Search loaded captions in YouTube's transcript panel"
+  },
+  "playlistAutoplayPerPlaylist": {
+    "message": "Autoplay control in each playlist header (saved per playlist)"
   }
 }
